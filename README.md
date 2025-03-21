@@ -1,351 +1,127 @@
-# lab04
 marialuneva@1511:~$ export GITHUB_USERNAME=marlinez
-marialuneva@1511:~$ export GITHUB_EMAIL=export GITHUB_EMAIL=maria15lun@mail.ru
-marialuneva@1511:~$ export GITHUB_TOKEN=<token>
-marialuneva@1511:~$ alias edit=nano
+marialuneva@1511:~$ export GITHUB_TOKEN=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
 marialuneva@1511:~$ cd ${GITHUB_USERNAME}/workspace
+marialuneva@1511:~/marlinez/workspace$ pushd .
+~/marlinez/workspace ~/marlinez/workspace
 marialuneva@1511:~/marlinez/workspace$ source scripts/activate
-marialuneva@1511:~/marlinez/workspace$ cat > ~/.config/hub <<EOF
-> github.com:
-- user: ${GITHUB_USERNAME}
-  oauth_token: ${GITHUB_TOKEN}
-  protocol: https
-EOF
-marialuneva@1511:~/marlinez/workspace$ git config --global hub.protocol https
-marialuneva@1511:~/marlinez/workspace$ mkdir projects/lab02 && cd projects/lab02
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git init
-подсказка: Using 'master' as the name for the initial branch. This default branch name
-подсказка: is subject to change. To configure the initial branch name to use in all
-подсказка: of your new repositories, which will suppress this warning, call:
-подсказка: 
-подсказка: 	git config --global init.defaultBranch <name>
-подсказка: 
-подсказка: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-подсказка: 'development'. The just-created branch can be renamed via this command:
-подсказка: 
-подсказка: 	git branch -m <name>
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git config --global user.name ${GITHUB_USERNAME}
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git config --global user.email ${GITHUB_EMAIL}
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git config -e --global
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab02.git
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git pull origin master
-remote: Enumerating objects: 3, done.
-remote: Counting objects: 100% (3/3), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-Распаковка объектов: 100% (3/3), 1.44 КиБ | 1.44 МиБ/с, готово.
-Из https://github.com/marlinez/lab02
- * branch            master     -> FETCH_HEAD
- * [новая ветка]     master     -> origin/master
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ touch README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git status
-Текущая ветка: master
-Неотслеживаемые файлы:
-  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
-	README.md
+marialuneva@1511:~/marlinez/workspace$ \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+Turning on ignore dotfiles mode.
+Downloading https://github.com/rvm/rvm/archive/master.tar.gz
+Upgrading the RVM installation in /home/marialuneva/.rvm/
+Upgrade of RVM in /home/marialuneva/.rvm/ is complete.
 
-индекс пуст, но есть неотслеживаемые файлы
-(используйте «git add», чтобы проиндексировать их)
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git add README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git commit -m"added README.md"
-[master 28e8a7a] added README.md
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git push origin master
-Username for 'https://github.com': marlinez
-Password for 'https://marlinez@github.com': 
-Перечисление объектов: 4, готово.
-Подсчет объектов: 100% (4/4), готово.
-При сжатии изменений используется до 3 потоков
-Сжатие объектов: 100% (2/2), готово.
-Запись объектов: 100% (3/3), 277 байтов | 277.00 КиБ/с, готово.
-Всего 3 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
-remote: This repository moved. Please use the new location:
-remote:   https://github.com/marlinez/Lab02.git
-To https://github.com/marlinez/lab02.git
-   e05f658..28e8a7a  master -> master
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git pull origin master
+Thanks for installing RVM 🙏
+Please consider donating to our open collective to help us maintain RVM.
+
+👉  Donate: https://opencollective.com/rvm/donate
+
+
+marialuneva@1511:~/marlinez/workspace$ echo "source $HOME/.rvm/scripts/rvm" >> scripts/activate
+marialuneva@1511:~/marlinez/workspace$ . scripts/activate
+marialuneva@1511:~/marlinez/workspace$ rvm autolibs disable
+marialuneva@1511:~/marlinez/workspace$ git clone https://github.com/${GITHUB_USERNAME}/lab03 projects/lab04
+Клонирование в «projects/lab04»...
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 14 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Получение объектов: 100% (14/14), 5.51 КиБ | 5.51 МиБ/с, готово.
+marialuneva@1511:~/marlinez/workspace$ cd projects/lab04
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git remote remove origin
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab04
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ cat > .travis.yml <<EOF
+> language: cpp
+EOF
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ cat >> .travis.yml <<EOF
+> script:
+- cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
+- cmake --build _build
+- cmake --build _build --target install
+EOF
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ cat >> .travis.yml <<EOF
+> addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
+EOF
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ ex -sc '1i|<фрагмент_вставки_значка>' -cx README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git add .travis.yml
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git add README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git commit -m"added CI"
+[master 214b02c] added CI
+ 2 files changed, 13 insertions(+)
+ create mode 100644 .travis.yml
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git config pull.rebase true
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git pull origin master
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-Распаковка объектов: 100% (3/3), 980 байтов | 980.00 КиБ/с, готово.
-Из https://github.com/marlinez/lab02
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Распаковка объектов: 100% (4/4), 1.48 КиБ | 1.48 МиБ/с, готово.
+Из https://github.com/marlinez/lab04
  * branch            master     -> FETCH_HEAD
-   28e8a7a..e05e466  master     -> origin/master
-Обновление 28e8a7a..e05e466
-Fast-forward
- .gitignore | 4 ++++
- 1 file changed, 4 insertions(+)
- create mode 100644 .gitignore
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git log
-commit e05e46604220eb153522e69cb21ef271771dbb87 (HEAD -> master, origin/master)
-Author: marlinez <maria15lun@mail.ru>
-Date:   Sun Mar 2 19:28:50 2025 +0300
-
-    Create .gitignore
-
-commit 28e8a7ae652e231dd4467ae646edc79c2be7d4b4
-Author: marlinez <maria15lun@mail.ru>
-Date:   Sun Mar 2 19:23:23 2025 +0300
-
-    added README.md
-
-commit e05f65811fe99c3cfec00c8e6a1267650c8ed3fa
-Author: marlinez <maria15lun@mail.ru>
-Date:   Sun Mar 2 19:12:38 2025 +0300
-
-    Initial commit
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ mkdir sources
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ mkdir include
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ mkdir examples
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > sources/print.cpp <<EOF
-> #include <print.hpp>
-
-void print(const std::string& text, std::ostream& out)
-{
-  out << text;
-}
-
-void print(const std::string& text, std::ofstream& out)
-{
-  out << text;
-}
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > include/print.hpp <<EOF
-> #include <fstream>
-#include <iostream>
-#include <string>
-
-void print(const std::string& text, std::ofstream& out);
-void print(const std::string& text, std::ostream& out = std::cout);
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > examples/example1.cpp <<EOF
-> #include <print.hpp>
-
-int main(int argc, char** argv)
-{
-  print("hello");
-}
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > examples/example2.cpp <<EOF
-> #include <print.hpp>
-
-#include <fstream>
-
-int main(int argc, char** argv)
-{
-  std::ofstream file("log.txt");
-  print(std::string("hello"), file);
-}
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ edit README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git status
-Текущая ветка: master
-Неотслеживаемые файлы:
-  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
-	examples/
-	include/
-	sources/
-
-индекс пуст, но есть неотслеживаемые файлы
-(используйте «git add», чтобы проиндексировать их)
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git add .
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git commit -m"added sources"
-[master eaf240d] added sources
- 4 files changed, 32 insertions(+)
+ * [новая ветка]     master     -> origin/master
+dropping d8450f9b0cac6ae76101016a5db43ca582b74618 Initial commit -- patch contents already upstream
+Автослияние README.md
+КОНФЛИКТ (добавление/добавление): Конфликт слияния в README.md
+error: не удалось применить коммит 8ea0a69... Add files via upload
+подсказка: Resolve all conflicts manually, mark them as resolved with
+подсказка: "git add/rm <conflicted_files>", then run "git rebase --continue".
+подсказка: You can instead skip this commit: run "git rebase --skip".
+подсказка: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Не удалось применить коммит 8ea0a69... Add files via upload
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git add README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git rebase --continue
+[отделённый HEAD d0d1781] Add files via upload
+ 6 files changed, 243 insertions(+), 1 deletion(-)
+ create mode 100644 CMakeLists.txt
  create mode 100644 examples/example1.cpp
  create mode 100644 examples/example2.cpp
  create mode 100644 include/print.hpp
  create mode 100644 sources/print.cpp
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git push origin master
-Username for 'https://github.com': marlinez 
-Password for 'https://marlinez@github.com': 
-Перечисление объектов: 10, готово.
-Подсчет объектов: 100% (10/10), готово.
-При сжатии изменений используется до 3 потоков
-Сжатие объектов: 100% (7/7), готово.
-Запись объектов: 100% (9/9), 959 байтов | 959.00 КиБ/с, готово.
-Всего 9 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
-remote: This repository moved. Please use the new location:
-remote:   https://github.com/marlinez/Lab02.git
-To https://github.com/marlinez/lab02.git
-   e05e466..eaf240d  master -> master
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ 
->>>>>>> 8ea0a69 (Add files via upload)
-=======
-<фрагмент_вставки_значка>
-marialuneva@1511:~$ export GITHUB_USERNAME=marlinez
-marialuneva@1511:~$ export GITHUB_EMAIL=export GITHUB_EMAIL=maria15lun@mail.ru
-marialuneva@1511:~$ export GITHUB_TOKEN=<token>
-marialuneva@1511:~$ alias edit=nano
-marialuneva@1511:~$ cd ${GITHUB_USERNAME}/workspace
-marialuneva@1511:~/marlinez/workspace$ source scripts/activate
-marialuneva@1511:~/marlinez/workspace$ cat > ~/.config/hub <<EOF
-> github.com:
-- user: ${GITHUB_USERNAME}
-  oauth_token: ${GITHUB_TOKEN}
-  protocol: https
-EOF
-marialuneva@1511:~/marlinez/workspace$ git config --global hub.protocol https
-marialuneva@1511:~/marlinez/workspace$ mkdir projects/lab02 && cd projects/lab02
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git init
-подсказка: Using 'master' as the name for the initial branch. This default branch name
-подсказка: is subject to change. To configure the initial branch name to use in all
-подсказка: of your new repositories, which will suppress this warning, call:
-подсказка: 
-подсказка: 	git config --global init.defaultBranch <name>
-подсказка: 
-подсказка: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-подсказка: 'development'. The just-created branch can be renamed via this command:
-подсказка: 
-подсказка: 	git branch -m <name>
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git config --global user.name ${GITHUB_USERNAME}
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git config --global user.email ${GITHUB_EMAIL}
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git config -e --global
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab02.git
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git pull origin master
-remote: Enumerating objects: 3, done.
-remote: Counting objects: 100% (3/3), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-Распаковка объектов: 100% (3/3), 1.44 КиБ | 1.44 МиБ/с, готово.
-Из https://github.com/marlinez/lab02
+Автослияние README.md
+КОНФЛИКТ (содержимое): Конфликт слияния в README.md
+error: не удалось применить коммит 214b02c... added CI
+подсказка: Resolve all conflicts manually, mark them as resolved with
+подсказка: "git add/rm <conflicted_files>", then run "git rebase --continue".
+подсказка: You can instead skip this commit: run "git rebase --skip".
+подсказка: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Не удалось применить коммит 214b02c... added CI
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git add README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git commit -m "Resolved merge conflicts"
+[отделённый HEAD 5a01e80] Resolved merge conflicts
+ 2 files changed, 188 insertions(+)
+ create mode 100644 .travis.yml
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git pull origin master
+Из https://github.com/marlinez/lab04
  * branch            master     -> FETCH_HEAD
- * [новая ветка]     master     -> origin/master
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ touch README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git status
-Текущая ветка: master
-Неотслеживаемые файлы:
-  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
-	README.md
+fatal: It seems that there is already a rebase-merge directory, and
+I wonder if you are in the middle of another rebase.  If that is the
+case, please try
+	git rebase (--continue | --abort | --skip)
+If that is not the case, please
+	rm -fr ".git/rebase-merge"
+and run me again.  I am stopping in case you still have something
+valuable there.
 
-индекс пуст, но есть неотслеживаемые файлы
-(используйте «git add», чтобы проиндексировать их)
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git add README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git commit -m"added README.md"
-[master 28e8a7a] added README.md
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git push origin master
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git rebase --continue 
+Успешно перемещён и обновлён refs/heads/master.
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git pull origin master
+Из https://github.com/marlinez/lab04
+ * branch            master     -> FETCH_HEAD
+Текущая ветка master уже в актуальном состоянии.
+marialuneva@1511:~/marlinez/workspace/projects/lab04$ git push origin master
 Username for 'https://github.com': marlinez
 Password for 'https://marlinez@github.com': 
-Перечисление объектов: 4, готово.
-Подсчет объектов: 100% (4/4), готово.
+Перечисление объектов: 17, готово.
+Подсчет объектов: 100% (17/17), готово.
 При сжатии изменений используется до 3 потоков
-Сжатие объектов: 100% (2/2), готово.
-Запись объектов: 100% (3/3), 277 байтов | 277.00 КиБ/с, готово.
-Всего 3 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
-remote: This repository moved. Please use the new location:
-remote:   https://github.com/marlinez/Lab02.git
-To https://github.com/marlinez/lab02.git
-   e05f658..28e8a7a  master -> master
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git pull origin master
-remote: Enumerating objects: 4, done.
-remote: Counting objects: 100% (4/4), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-Распаковка объектов: 100% (3/3), 980 байтов | 980.00 КиБ/с, готово.
-Из https://github.com/marlinez/lab02
- * branch            master     -> FETCH_HEAD
-   28e8a7a..e05e466  master     -> origin/master
-Обновление 28e8a7a..e05e466
-Fast-forward
- .gitignore | 4 ++++
- 1 file changed, 4 insertions(+)
- create mode 100644 .gitignore
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git log
-commit e05e46604220eb153522e69cb21ef271771dbb87 (HEAD -> master, origin/master)
-Author: marlinez <maria15lun@mail.ru>
-Date:   Sun Mar 2 19:28:50 2025 +0300
-
-    Create .gitignore
-
-commit 28e8a7ae652e231dd4467ae646edc79c2be7d4b4
-Author: marlinez <maria15lun@mail.ru>
-Date:   Sun Mar 2 19:23:23 2025 +0300
-
-    added README.md
-
-commit e05f65811fe99c3cfec00c8e6a1267650c8ed3fa
-Author: marlinez <maria15lun@mail.ru>
-Date:   Sun Mar 2 19:12:38 2025 +0300
-
-    Initial commit
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ mkdir sources
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ mkdir include
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ mkdir examples
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > sources/print.cpp <<EOF
-> #include <print.hpp>
-
-void print(const std::string& text, std::ostream& out)
-{
-  out << text;
-}
-
-void print(const std::string& text, std::ofstream& out)
-{
-  out << text;
-}
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > include/print.hpp <<EOF
-> #include <fstream>
-#include <iostream>
-#include <string>
-
-void print(const std::string& text, std::ofstream& out);
-void print(const std::string& text, std::ostream& out = std::cout);
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > examples/example1.cpp <<EOF
-> #include <print.hpp>
-
-int main(int argc, char** argv)
-{
-  print("hello");
-}
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ cat > examples/example2.cpp <<EOF
-> #include <print.hpp>
-
-#include <fstream>
-
-int main(int argc, char** argv)
-{
-  std::ofstream file("log.txt");
-  print(std::string("hello"), file);
-}
-EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ edit README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git status
-Текущая ветка: master
-Неотслеживаемые файлы:
-  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
-	examples/
-	include/
-	sources/
-
-индекс пуст, но есть неотслеживаемые файлы
-(используйте «git add», чтобы проиндексировать их)
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git add .
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git commit -m"added sources"
-[master eaf240d] added sources
- 4 files changed, 32 insertions(+)
- create mode 100644 examples/example1.cpp
- create mode 100644 examples/example2.cpp
- create mode 100644 include/print.hpp
- create mode 100644 sources/print.cpp
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ git push origin master
-Username for 'https://github.com': marlinez 
-Password for 'https://marlinez@github.com': 
-Перечисление объектов: 10, готово.
-Подсчет объектов: 100% (10/10), готово.
-При сжатии изменений используется до 3 потоков
-Сжатие объектов: 100% (7/7), готово.
-Запись объектов: 100% (9/9), 959 байтов | 959.00 КиБ/с, готово.
-Всего 9 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
-remote: This repository moved. Please use the new location:
-remote:   https://github.com/marlinez/Lab02.git
-To https://github.com/marlinez/lab02.git
-   e05e466..eaf240d  master -> master
-marialuneva@1511:~/marlinez/workspace/projects/lab02$ 
->>>>>>> 214b02c (added CI)
+Сжатие объектов: 100% (13/13), готово.
+Запись объектов: 100% (15/15), 4.01 КиБ | 4.01 МиБ/с, готово.
+Всего 15 (изменений 2), повторно использовано 8 (изменений 0), повторно использовано пакетов 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/marlinez/lab04
+   ae69e0f..5a01e80  master -> master
