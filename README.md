@@ -1,4 +1,4 @@
-#lab05
+#lab06
 marialuneva@1511:~$ export GITHUB_USERNAME=marlinez
 marialuneva@1511:~$ export GITHUB_TOKEN=<token>
 marialuneva@1511:~$ alias gsed=sed
@@ -21,26 +21,26 @@ Please consider donating to our open collective to help us maintain RVM.
 marialuneva@1511:~/marlinez/workspace$ echo "source $HOME/.rvm/scripts/rvm" >> scripts/activate
 marialuneva@1511:~/marlinez/workspace$ . scripts/activate
 marialuneva@1511:~/marlinez/workspace$ rvm autolibs disable
-marialuneva@1511:~/marlinez/workspace$ git clone https://github.com/${GITHUB_USERNAME}/lab03 projects/lab05
-Клонирование в «projects/lab05»...
+marialuneva@1511:~/marlinez/workspace$ git clone https://github.com/${GITHUB_USERNAME}/lab03 projects/lab06
+Клонирование в «projects/lab06»...
 remote: Enumerating objects: 14, done.
 remote: Counting objects: 100% (14/14), done.
 remote: Compressing objects: 100% (11/11), done.
 remote: Total 14 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 Получение объектов: 100% (14/14), 5.51 КиБ | 5.51 МиБ/с, готово.
-marialuneva@1511:~/marlinez/workspace$ cd projects/lab05
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git remote remove origin
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab05
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cat > .travis.yml <<EOF
+marialuneva@1511:~/marlinez/workspace$ cd projects/lab06
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git remote remove origin
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cat > .travis.yml <<EOF
 > language: cpp
 EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cat >> .travis.yml <<EOF
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cat >> .travis.yml <<EOF
 > script:
 - cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
 - cmake --build _build
 - cmake --build _build --target install
 EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cat >> .travis.yml <<EOF
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cat >> .travis.yml <<EOF
 > addons:
   apt:
     sources:
@@ -49,32 +49,32 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ cat >> .travis.yml <<EOF
       - cmake
       - cmake-data
 EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ ex -sc '1i|<фрагмент_вставки_значка>' -cx README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add .travis.yml
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m"added CI"
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ ex -sc '1i|<фрагмент_вставки_значка>' -cx README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add .travis.yml
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git commit -m"added CI"
 [master 214b02c] added CI
  2 files changed, 13 insertions(+)
  create mode 100644 .travis.yml
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git config pull.rebase true
-marialuneva@1511:~/marlinez/workspace$ git clone https://github.com/${GITHUB_USERNAME}/lab04 projects/lab05
-Клонирование в «projects/lab05»...
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git config pull.rebase true
+marialuneva@1511:~/marlinez/workspace$ git clone https://github.com/${GITHUB_USERNAME}/lab04 projects/lab06
+Клонирование в «projects/lab06»...
 remote: Enumerating objects: 22, done.
 remote: Counting objects: 100% (22/22), done.
 remote: Compressing objects: 100% (17/17), done.
 remote: Total 22 (delta 3), reused 14 (delta 2), pack-reused 0 (from 0)
 Получение объектов: 100% (22/22), 8.51 КиБ | 2.84 МиБ/с, готово.
 Определение изменений: 100% (3/3), готово.
-marialuneva@1511:~/marlinez/workspace$ cd projects/lab05
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git remote remove origin
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab05
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
+marialuneva@1511:~/marlinez/workspace$ cd projects/lab06
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git remote remove origin
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git pull origin master
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 Распаковка объектов: 100% (4/4), 1.48 КиБ | 1.48 МиБ/с, готово.
-Из https://github.com/marlinez/lab05
+Из https://github.com/marlinez/lab06
  * branch            master     -> FETCH_HEAD
  * [новая ветка]     master     -> origin/master
 подсказка: You have divergent branches and need to specify how to reconcile them.
@@ -90,13 +90,13 @@ remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 подсказка: or --ff-only on the command line to override the configured default per
 подсказка: invocation.
 fatal: Need to specify how to reconcile divergent branches.
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git config pull.rebase false
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
-Из https://github.com/marlinez/lab05
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git config pull.rebase false
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git pull origin master
+Из https://github.com/marlinez/lab06
  * branch            master     -> FETCH_HEAD
 fatal: отказ слияния несвязанных историй изменений
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master --allow-unrelated-histories
-Из https://github.com/marlinez/lab05
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git pull origin master --allow-unrelated-histories
+Из https://github.com/marlinez/lab06
  * branch            master     -> FETCH_HEAD
 Автослияние README.md
 КОНФЛИКТ (добавление/добавление): Конфликт слияния в README.md
@@ -106,8 +106,8 @@ error: не удалось применить коммит 8ea0a69... Add files 
 подсказка: You can instead skip this commit: run "git rebase --skip".
 подсказка: To abort and get back to the state before "git rebase", run "git rebase --abort".
 Не удалось применить коммит 8ea0a69... Add files via upload
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git rebase --continue
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git rebase --continue
 [отделённый HEAD d0d1781] Add files via upload
  6 files changed, 243 insertions(+), 1 deletion(-)
  create mode 100644 CMakeLists.txt
@@ -123,36 +123,36 @@ error: не удалось применить коммит 214b02c... added CI
 подсказка: You can instead skip this commit: run "git rebase --skip".
 подсказка: To abort and get back to the state before "git rebase", run "git rebase --abort".
 Не удалось применить коммит 214b02c... added CI
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m "Resolved merge conflicts"
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git commit -m "Resolved merge conflicts"
 [отделённый HEAD 5a01e80] Resolved merge conflicts
  2 files changed, 188 insertions(+)
  create mode 100644 .travis.yml
 Сбой автоматического слияния; исправьте конфликты, затем зафиксируйте результат.
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add .
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m "Объединение независимых историй"
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add .
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git commit -m "Объединение независимых историй"
 [master 3af7f9f] Объединение независимых историй
 >>>>>>> ae8d022f8cfc3d40042780bd20863b5f6aef4abc
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
-Из https://github.com/marlinez/lab05
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git pull origin master
+Из https://github.com/marlinez/lab06
  * branch            master     -> FETCH_HEAD
 Уже актуально.
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ mkdir third-party
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git submodule add https://github.com/google/googletest third-party/gtest
-Клонирование в «/home/marialuneva/marlinez/workspace/projects/lab05/third-party/gtest»...
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ mkdir third-party
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git submodule add https://github.com/google/googletest third-party/gtest
+Клонирование в «/home/marialuneva/marlinez/workspace/projects/lab06/third-party/gtest»...
 remote: Enumerating objects: 27977, done.
 remote: Counting objects: 100% (230/230), done.
 remote: Compressing objects: 100% (143/143), done.
 remote: Total 27977 (delta 148), reused 88 (delta 87), pack-reused 27747 (from 2)
 Получение объектов: 100% (27977/27977), 13.47 МиБ | 1.59 МиБ/с, готово.
 Определение изменений: 100% (20737/20737), готово.
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cd third-party/gtest && git checkout release-1.8.1 && cd ../..
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cd third-party/gtest && git checkout release-1.8.1 && cd ../..
 Примечание: переключение на «release-1.8.1».
 
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git rebase --continue 
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git rebase --continue 
 Успешно перемещён и обновлён refs/heads/master.
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
-Из https://github.com/marlinez/lab05
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git pull origin master
+Из https://github.com/marlinez/lab06
  * branch            master     -> FETCH_HEAD
 Текущая ветка master уже в актуальном состоянии.
 Вы сейчас в состоянии «отсоединённого указателя HEAD». Можете осмотреться,
@@ -174,16 +174,16 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
 advice.detachedHead в значение false
 
 HEAD сейчас на 2fe3bd99 Merge pull request #1433 from dsacre/fix-clang-warnings
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add third-party/gtest
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m"added gtest framework"
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add third-party/gtest
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git commit -m"added gtest framework"
 [master 9510a5d] added gtest framework
  2 files changed, 4 insertions(+)
  create mode 100644 .gitmodules
  create mode 160000 third-party/gtest
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ gsed -i '/option(BUILD_EXAMPLES "Build examples" OFF)/a\
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ gsed -i '/option(BUILD_EXAMPLES "Build examples" OFF)/a\
 > option(BUILD_TESTS "Build tests" OFF)
 ' CMakeLists.txt
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cat >> CMakeLists.txt <<EOF
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cat >> CMakeLists.txt <<EOF
 > if(BUILD_TESTS)
   enable_testing()
   add_subdirectory(third-party/gtest)
@@ -193,8 +193,8 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ cat >> CMakeLists.txt <<EO
   add_test(NAME check COMMAND check)
 endif()
 EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ mkdir tests
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cat > tests/test1.cpp <<EOF
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ mkdir tests
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cat > tests/test1.cpp <<EOF
 > #include <print.hpp>
 
 #include <gtest/gtest.h>
@@ -215,7 +215,7 @@ TEST(Print, InFileStream)
   EXPECT_EQ(result, text);
 }
 EOF
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cmake -H. -B_build -DBUILD_TESTS=ON
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cmake -H. -B_build -DBUILD_TESTS=ON
 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   Compatibility with CMake < 3.5 will be removed from a future version of
   CMake.
@@ -275,8 +275,8 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Found Threads: TRUE  
 -- Configuring done (0.6s)
 -- Generating done (0.0s)
--- Build files have been written to: /home/marialuneva/marlinez/workspace/projects/lab05/_build
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cmake --build _build
+-- Build files have been written to: /home/marialuneva/marlinez/workspace/projects/lab06/_build
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cmake --build _build
 [  8%] Building CXX object CMakeFiles/print.dir/sources/print.cpp.o
 [ 16%] Linking CXX static library libprint.a
 [ 16%] Built target print
@@ -295,17 +295,17 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ cmake --build _build
 [ 91%] Building CXX object third-party/gtest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
 [100%] Linking CXX static library libgmock_main.a
 [100%] Built target gmock_main
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cmake --build _build --target test
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cmake --build _build --target test
 Running tests...
-Test project /home/marialuneva/marlinez/workspace/projects/lab05/_build
+Test project /home/marialuneva/marlinez/workspace/projects/lab06/_build
     Start 1: check
 1/1 Test #1: check ............................   Passed    0.00 sec
 
 100% tests passed, 0 tests failed out of 1
 
 Total Test time (real) =   0.01 sec
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ _build/check
-Running main() from /home/marialuneva/marlinez/workspace/projects/lab05/third-party/gtest/googletest/src/gtest_main.cc
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ _build/check
+Running main() from /home/marialuneva/marlinez/workspace/projects/lab06/third-party/gtest/googletest/src/gtest_main.cc
 [==========] Running 1 test from 1 test case.
 [----------] Global test environment set-up.
 [----------] 1 test from Print
@@ -316,11 +316,11 @@ Running main() from /home/marialuneva/marlinez/workspace/projects/lab05/third-pa
 [----------] Global test environment tear-down
 [==========] 1 test from 1 test case ran. (0 ms total)
 [  PASSED  ] 1 test.
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ cmake --build _build --target test -- ARGS=--verbose
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ cmake --build _build --target test -- ARGS=--verbose
 Running tests...
-UpdateCTestConfiguration  from :/home/marialuneva/marlinez/workspace/projects/lab05/_build/DartConfiguration.tcl
-UpdateCTestConfiguration  from :/home/marialuneva/marlinez/workspace/projects/lab05/_build/DartConfiguration.tcl
-Test project /home/marialuneva/marlinez/workspace/projects/lab05/_build
+UpdateCTestConfiguration  from :/home/marialuneva/marlinez/workspace/projects/lab06/_build/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/marialuneva/marlinez/workspace/projects/lab06/_build/DartConfiguration.tcl
+Test project /home/marialuneva/marlinez/workspace/projects/lab06/_build
 Constructing a list of tests
 Done constructing a list of tests
 Updating test list for fixtures
@@ -330,10 +330,10 @@ Checking test dependency graph end
 test 1
     Start 1: check
 
-1: Test command: /home/marialuneva/marlinez/workspace/projects/lab05/_build/check
-1: Working Directory: /home/marialuneva/marlinez/workspace/projects/lab05/_build
+1: Test command: /home/marialuneva/marlinez/workspace/projects/lab06/_build/check
+1: Working Directory: /home/marialuneva/marlinez/workspace/projects/lab06/_build
 1: Test timeout computed to be: 10000000
-1: Running main() from /home/marialuneva/marlinez/workspace/projects/lab05/third-party/gtest/googletest/src/gtest_main.cc
+1: Running main() from /home/marialuneva/marlinez/workspace/projects/lab06/third-party/gtest/googletest/src/gtest_main.cc
 1: [==========] Running 1 test from 1 test case.
 1: [----------] Global test environment set-up.
 1: [----------] 1 test from Print
@@ -349,14 +349,14 @@ test 1
 100% tests passed, 0 tests failed out of 1
 
 Total Test time (real) =   0.00 sec
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ gsed -i 's/lab04/lab05/g' README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ gsed -i 's/\(DCMAKE_INSTALL_PREFIX=_install\)/\1 -DBUILD_TESTS=ON/' .travis.yml
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ gsed -i '/cmake --build _build --target install/a\
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ gsed -i 's/lab04/lab06/g' README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ gsed -i 's/\(DCMAKE_INSTALL_PREFIX=_install\)/\1 -DBUILD_TESTS=ON/' .travis.yml
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ gsed -i '/cmake --build _build --target install/a\
 > - cmake --build _build --target test -- ARGS=--verbose
 > ' .travis.yml
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add .travis.yml
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add tests
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add -p
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add .travis.yml
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add tests
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add -p
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 96a361e..89739e7 100644
 --- a/CMakeLists.txt
@@ -371,16 +371,16 @@ index 96a361e..89739e7 100644
  
 (1/2) Индексировать этот блок [y,n,q,a,d,j,J,g,/,e,?]? q
 
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m"added tests"
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git commit -m"added tests"
 [master 06c46d5] added tests
  2 files changed, 21 insertions(+), 1 deletion(-)
  create mode 100644 tests/test1.cpp
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add README.md
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
-Из https://github.com/marlinez/lab05
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git add README.md
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git pull origin master
+Из https://github.com/marlinez/lab06
  * branch            master     -> FETCH_HEAD
 Уже актуально.
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git push origin master
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git push origin master
 Username for 'https://github.com': marlinez
 Password for 'https://marlinez@github.com': 
 Перечисление объектов: 35, готово.
@@ -390,9 +390,9 @@ Password for 'https://marlinez@github.com':
 Запись объектов: 100% (15/15), 4.01 КиБ | 4.01 МиБ/с, готово.
 Всего 15 (изменений 2), повторно использовано 8 (изменений 0), повторно использовано пакетов 0
 remote: Resolving deltas: 100% (2/2), done.
-To https://github.com/marlinez/lab05
+To https://github.com/marlinez/lab06
    ae69e0f..5a01e80  master -> master
-# lab05
+# lab06
 Сжатие объектов: 100% (25/25), готово.
 Запись объектов: 100% (33/33), 9.05 КиБ | 4.52 МиБ/с, готово.
 Всего 33 (изменений 8), повторно использовано 18 (изменений 3), повторно использовано пакетов 0
@@ -418,14 +418,14 @@ remote:          - commit: 3af7f9fb2e49ba4888990b79fa085cd0e1d89383
 remote:            path: README.md:2
 remote:     
 remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.
-remote:        https://github.com/marlinez/lab05/security/secret-scanning/unblock-secret/2v5QLJglutUuYpDTgOxrYKBNISi
+remote:        https://github.com/marlinez/lab06/security/secret-scanning/unblock-secret/2v5QLJglutUuYpDTgOxrYKBNISi
 remote:     
 remote: 
 remote: 
-To https://github.com/marlinez/lab05
+To https://github.com/marlinez/lab06
  ! [remote rejected] master -> master (push declined due to repository rule violations)
-error: не удалось отправить некоторые ссылки в «https://github.com/marlinez/lab05»
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ git push origin master
+error: не удалось отправить некоторые ссылки в «https://github.com/marlinez/lab06»
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ git push origin master
 Username for 'https://github.com': marlinez
 Password for 'https://marlinez@github.com': 
 Перечисление объектов: 35, готово.
@@ -435,9 +435,9 @@ Password for 'https://marlinez@github.com':
 Запись объектов: 100% (33/33), 9.05 КиБ | 2.26 МиБ/с, готово.
 Всего 33 (изменений 8), повторно использовано 18 (изменений 3), повторно использовано пакетов 0
 remote: Resolving deltas: 100% (8/8), done.
-To https://github.com/marlinez/lab05
+To https://github.com/marlinez/lab06
    a21f244..06c46d5  master -> master
-marialuneva@1511:~/marlinez/workspace/projects/lab05$ 
+marialuneva@1511:~/marlinez/workspace/projects/lab06$ 
 
 
 # lab06
