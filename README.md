@@ -1,15 +1,11 @@
 #lab05
 marialuneva@1511:~$ export GITHUB_USERNAME=marlinez
-<<<<<<< HEAD
 marialuneva@1511:~$ export GITHUB_TOKEN=<token>
-=======
 marialuneva@1511:~$ alias gsed=sed
->>>>>>> ae8d022f8cfc3d40042780bd20863b5f6aef4abc
 marialuneva@1511:~$ cd ${GITHUB_USERNAME}/workspace
 marialuneva@1511:~/marlinez/workspace$ pushd .
 ~/marlinez/workspace ~/marlinez/workspace
 marialuneva@1511:~/marlinez/workspace$ source scripts/activate
-<<<<<<< HEAD
 marialuneva@1511:~/marlinez/workspace$ \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
 Turning on ignore dotfiles mode.
 Downloading https://github.com/rvm/rvm/archive/master.tar.gz
@@ -61,7 +57,6 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m"added CI"
  2 files changed, 13 insertions(+)
  create mode 100644 .travis.yml
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git config pull.rebase true
-=======
 marialuneva@1511:~/marlinez/workspace$ git clone https://github.com/${GITHUB_USERNAME}/lab04 projects/lab05
 Клонирование в «projects/lab05»...
 remote: Enumerating objects: 22, done.
@@ -73,7 +68,6 @@ remote: Total 22 (delta 3), reused 14 (delta 2), pack-reused 0 (from 0)
 marialuneva@1511:~/marlinez/workspace$ cd projects/lab05
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git remote remove origin
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab05
->>>>>>> ae8d022f8cfc3d40042780bd20863b5f6aef4abc
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
@@ -106,7 +100,6 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master --a
  * branch            master     -> FETCH_HEAD
 Автослияние README.md
 КОНФЛИКТ (добавление/добавление): Конфликт слияния в README.md
-<<<<<<< HEAD
 error: не удалось применить коммит 8ea0a69... Add files via upload
 подсказка: Resolve all conflicts manually, mark them as resolved with
 подсказка: "git add/rm <conflicted_files>", then run "git rebase --continue".
@@ -135,7 +128,6 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m "Resolved me
 [отделённый HEAD 5a01e80] Resolved merge conflicts
  2 files changed, 188 insertions(+)
  create mode 100644 .travis.yml
-=======
 Сбой автоматического слияния; исправьте конфликты, затем зафиксируйте результат.
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git add .
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git commit -m "Объединение независимых историй"
@@ -157,14 +149,12 @@ remote: Total 27977 (delta 148), reused 88 (delta 87), pack-reused 27747 (from 2
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ cd third-party/gtest && git checkout release-1.8.1 && cd ../..
 Примечание: переключение на «release-1.8.1».
 
-<<<<<<< HEAD
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git rebase --continue 
 Успешно перемещён и обновлён refs/heads/master.
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
 Из https://github.com/marlinez/lab05
  * branch            master     -> FETCH_HEAD
 Текущая ветка master уже в актуальном состоянии.
-=======
 Вы сейчас в состоянии «отсоединённого указателя HEAD». Можете осмотреться,
 внести экспериментальные изменения и зафиксировать их, также можете
 отменить любые коммиты, созданные в этом состоянии, не затрагивая другие
@@ -390,14 +380,12 @@ marialuneva@1511:~/marlinez/workspace/projects/lab05$ git pull origin master
 Из https://github.com/marlinez/lab05
  * branch            master     -> FETCH_HEAD
 Уже актуально.
->>>>>>> ae8d022f8cfc3d40042780bd20863b5f6aef4abc
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ git push origin master
 Username for 'https://github.com': marlinez
 Password for 'https://marlinez@github.com': 
 Перечисление объектов: 35, готово.
 Подсчет объектов: 100% (35/35), готово.
 При сжатии изменений используется до 3 потоков
-<<<<<<< HEAD
 Сжатие объектов: 100% (13/13), готово.
 Запись объектов: 100% (15/15), 4.01 КиБ | 4.01 МиБ/с, готово.
 Всего 15 (изменений 2), повторно использовано 8 (изменений 0), повторно использовано пакетов 0
@@ -405,7 +393,6 @@ remote: Resolving deltas: 100% (2/2), done.
 To https://github.com/marlinez/lab05
    ae69e0f..5a01e80  master -> master
 # lab05
-=======
 Сжатие объектов: 100% (25/25), готово.
 Запись объектов: 100% (33/33), 9.05 КиБ | 4.52 МиБ/с, готово.
 Всего 33 (изменений 8), повторно использовано 18 (изменений 3), повторно использовано пакетов 0
@@ -452,4 +439,3 @@ To https://github.com/marlinez/lab05
    a21f244..06c46d5  master -> master
 marialuneva@1511:~/marlinez/workspace/projects/lab05$ 
 
->>>>>>> ae8d022f8cfc3d40042780bd20863b5f6aef4abc
