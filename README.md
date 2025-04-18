@@ -300,3 +300,5 @@ artifacts
 1 directory, 1 file
 marialuneva@1511:~/marlinez/workspace/projects/lab06$ 
 
+# lab07
+
